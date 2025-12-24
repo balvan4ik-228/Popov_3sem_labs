@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "profession": "Программист C++",
+    "town": "Москва",
+    "company": "Яндекс"
+  },
+  {
+    "id": 2,
+    "profession": "Программист C#",
+    "town": "СПб",
+    "company": "Яндекс"
+  },
+  {
+    "id": 3,
+    "profession": null,
+    "town": "Екатеринбург",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 4,
+    "profession": "Программист Ruby",
+    "town": "Москва",
+    "company": "VK"
+  },
+  {
+    "id": 5,
+    "profession": "Программист Ruby",
+    "town": "СПб",
+    "company": "Яндекс"
+  },
+  {
+    "id": 6,
+    "profession": "Программист PHP",
+    "town": "Екатеринбург",
+    "company": "VK"
+  },
+  {
+    "id": 7,
+    "profession": "Программист PHP",
+    "town": "СПб",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 8,
+    "profession": "Программист PHP",
+    "town": "Москва",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 9,
+    "profession": "Программист C#",
+    "town": "Москва",
+    "company": "VK"
+  },
+  {
+    "id": 10,
+    "profession": "Программист Go",
+    "town": "Казань",
+    "company": "VK"
+  },
+  {
+    "id": 11,
+    "profession": "Программист Go",
+    "town": "Москва",
+    "company": "Сбер"
+  },
+  {
+    "id": 12,
+    "profession": "Программист JavaScript",
+    "town": "СПб",
+    "company": "Яндекс"
+  },
+  {
+    "id": 13,
+    "profession": null,
+    "town": "Казань",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 14,
+    "profession": "Программист PHP",
+    "town": "Екатеринбург",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 15,
+    "profession": "Программист PHP",
+    "town": "Екатеринбург",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 16,
+    "profession": "Программист C++",
+    "town": "Казань",
+    "company": "Яндекс"
+  },
+  {
+    "id": 17,
+    "profession": "Программист C#",
+    "town": "СПб",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 18,
+    "profession": "Программист Ruby",
+    "town": "Екатеринбург",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 19,
+    "profession": "Программист Python",
+    "town": "СПб",
+    "company": "Сбер"
+  },
+  {
+    "id": 20,
+    "profession": "Программист PHP",
+    "town": "Казань",
+    "company": "Яндекс"
+  },
+  {
+    "id": 21,
+    "profession": "Программист C#",
+    "town": "Казань",
+    "company": "Сбер"
+  },
+  {
+    "id": 22,
+    "profession": "Программист C#",
+    "town": "Москва",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 23,
+    "profession": "Программист Ruby",
+    "town": "СПб",
+    "company": "Яндекс"
+  },
+  {
+    "id": 24,
+    "profession": "Программист Go",
+    "town": "Екатеринбург",
+    "company": "Яндекс"
+  },
+  {
+    "id": 25,
+    "profession": "Программист Go",
+    "town": "Казань",
+    "company": "Сбер"
+  },
+  {
+    "id": 26,
+    "profession": "Программист Python",
+    "town": "Казань",
+    "company": "Сбер"
+  },
+  {
+    "id": 27,
+    "profession": "Программист Go",
+    "town": "Екатеринбург",
+    "company": "VK"
+  },
+  {
+    "id": 28,
+    "profession": "Программист Java",
+    "town": "СПб",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 29,
+    "profession": "Программист C#",
+    "town": "Казань",
+    "company": "Яндекс"
+  },
+  {
+    "id": 30,
+    "profession": "Программист PHP",
+    "town": "Казань",
+    "company": "Яндекс"
+  },
+  {
+    "id": 31,
+    "profession": "Программист Go",
+    "town": "СПб",
+    "company": "VK"
+  },
+  {
+    "id": 32,
+    "profession": "Программист Ruby",
+    "town": "Москва",
+    "company": "Сбер"
+  },
+  {
+    "id": 33,
+    "profession": "Программист PHP",
+    "town": "Москва",
+    "company": "VK"
+  },
+  {
+    "id": 34,
+    "profession": "Программист C++",
+    "town": "Казань",
+    "company": "Сбер"
+  },
+  {
+    "id": 35,
+    "profession": "Программист PHP",
+    "town": "Екатеринбург",
+    "company": "Яндекс"
+  },
+  {
+    "id": 36,
+    "profession": "Программист C#",
+    "town": "Екатеринбург",
+    "company": "VK"
+  },
+  {
+    "id": 37,
+    "profession": "Программист Java",
+    "town": "Екатеринбург",
+    "company": "Сбер"
+  },
+  {
+    "id": 38,
+    "profession": "Программист Ruby",
+    "town": "Москва",
+    "company": "VK"
+  },
+  {
+    "id": 39,
+    "profession": "Программист Java",
+    "town": "СПб",
+    "company": "VK"
+  },
+  {
+    "id": 40,
+    "profession": "Программист JavaScript",
+    "town": "Москва",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 41,
+    "profession": "Программист JavaScript",
+    "town": "Екатеринбург",
+    "company": "Яндекс"
+  },
+  {
+    "id": 42,
+    "profession": null,
+    "town": "Казань",
+    "company": "VK"
+  },
+  {
+    "id": 43,
+    "profession": "Программист Ruby",
+    "town": "СПб",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 44,
+    "profession": "Программист Go",
+    "town": "СПб",
+    "company": "VK"
+  },
+  {
+    "id": 45,
+    "profession": "Программист Python",
+    "town": "СПб",
+    "company": "VK"
+  },
+  {
+    "id": 46,
+    "profession": "Программист C#",
+    "town": "Казань",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 47,
+    "profession": "Программист C++",
+    "town": "СПб",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 48,
+    "profession": "Программист C++",
+    "town": "Казань",
+    "company": "Сбер"
+  },
+  {
+    "id": 49,
+    "profession": "Программист Java",
+    "town": "Москва",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 50,
+    "profession": "Программист C#",
+    "town": "Москва",
+    "company": "Яндекс"
+  },
+  {
+    "id": 51,
+    "profession": "Программист C++",
+    "town": "Москва",
+    "company": "VK"
+  },
+  {
+    "id": 52,
+    "profession": "Программист Go",
+    "town": "Москва",
+    "company": "VK"
+  },
+  {
+    "id": 53,
+    "profession": "Программист Java",
+    "town": "Екатеринбург",
+    "company": "Яндекс"
+  },
+  {
+    "id": 54,
+    "profession": "Программист Java",
+    "town": "Казань",
+    "company": "Сбер"
+  },
+  {
+    "id": 55,
+    "profession": "Программист Go",
+    "town": "Екатеринбург",
+    "company": "Сбер"
+  },
+  {
+    "id": 56,
+    "profession": "Программист Java",
+    "town": "Казань",
+    "company": "Яндекс"
+  },
+  {
+    "id": 57,
+    "profession": null,
+    "town": "Екатеринбург",
+    "company": "Яндекс"
+  },
+  {
+    "id": 58,
+    "profession": "Программист Go",
+    "town": "Москва",
+    "company": "Яндекс"
+  },
+  {
+    "id": 59,
+    "profession": "Программист JavaScript",
+    "town": "Москва",
+    "company": "Яндекс"
+  },
+  {
+    "id": 60,
+    "profession": null,
+    "town": "Москва",
+    "company": "VK"
+  },
+  {
+    "id": 61,
+    "profession": null,
+    "town": "Екатеринбург",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 62,
+    "profession": "Программист Java",
+    "town": "Казань",
+    "company": "Сбер"
+  },
+  {
+    "id": 63,
+    "profession": "Программист Ruby",
+    "town": "Казань",
+    "company": "Яндекс"
+  },
+  {
+    "id": 64,
+    "profession": "Программист C#",
+    "town": "Екатеринбург",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 65,
+    "profession": "Программист Go",
+    "town": "Екатеринбург",
+    "company": "Яндекс"
+  },
+  {
+    "id": 66,
+    "profession": "Программист C++",
+    "town": "СПб",
+    "company": "Яндекс"
+  },
+  {
+    "id": 67,
+    "profession": "Программист C#",
+    "town": "Казань",
+    "company": "Сбер"
+  },
+  {
+    "id": 68,
+    "profession": null,
+    "town": "Екатеринбург",
+    "company": "VK"
+  },
+  {
+    "id": 69,
+    "profession": "Программист C++",
+    "town": "Екатеринбург",
+    "company": "Яндекс"
+  },
+  {
+    "id": 70,
+    "profession": "Программист C++",
+    "town": "Екатеринбург",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 71,
+    "profession": "Программист JavaScript",
+    "town": "Казань",
+    "company": "Яндекс"
+  },
+  {
+    "id": 72,
+    "profession": "Программист PHP",
+    "town": "Казань",
+    "company": "Яндекс"
+  },
+  {
+    "id": 73,
+    "profession": "Программист Go",
+    "town": "Екатеринбург",
+    "company": "VK"
+  },
+  {
+    "id": 74,
+    "profession": "Программист C#",
+    "town": "Екатеринбург",
+    "company": "VK"
+  },
+  {
+    "id": 75,
+    "profession": "Программист Go",
+    "town": "Москва",
+    "company": "Яндекс"
+  },
+  {
+    "id": 76,
+    "profession": "Программист Ruby",
+    "town": "Москва",
+    "company": "Яндекс"
+  },
+  {
+    "id": 77,
+    "profession": "Программист Java",
+    "town": "Москва",
+    "company": "Сбер"
+  },
+  {
+    "id": 78,
+    "profession": "Программист Python",
+    "town": "Москва",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 79,
+    "profession": "Программист C++",
+    "town": "Москва",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 80,
+    "profession": "Программист Java",
+    "town": "Москва",
+    "company": "VK"
+  },
+  {
+    "id": 81,
+    "profession": "Программист Java",
+    "town": "СПб",
+    "company": "Сбер"
+  },
+  {
+    "id": 82,
+    "profession": "Программист Python",
+    "town": "Москва",
+    "company": "VK"
+  },
+  {
+    "id": 83,
+    "profession": "Программист Go",
+    "town": "Казань",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 84,
+    "profession": "Программист Java",
+    "town": "Москва",
+    "company": "Яндекс"
+  },
+  {
+    "id": 85,
+    "profession": "Программист Go",
+    "town": "Москва",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 86,
+    "profession": "Программист PHP",
+    "town": "Москва",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 87,
+    "profession": "Программист Ruby",
+    "town": "Казань",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 88,
+    "profession": "Программист JavaScript",
+    "town": "Екатеринбург",
+    "company": "VK"
+  },
+  {
+    "id": 89,
+    "profession": null,
+    "town": "Екатеринбург",
+    "company": "Яндекс"
+  },
+  {
+    "id": 90,
+    "profession": "Программист C++",
+    "town": "СПб",
+    "company": "Яндекс"
+  },
+  {
+    "id": 91,
+    "profession": "Программист PHP",
+    "town": "Москва",
+    "company": "VK"
+  },
+  {
+    "id": 92,
+    "profession": "Программист Ruby",
+    "town": "Москва",
+    "company": "Сбер"
+  },
+  {
+    "id": 93,
+    "profession": "Программист JavaScript",
+    "town": "СПб",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 94,
+    "profession": "Программист C++",
+    "town": "СПб",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 95,
+    "profession": "Программист C++",
+    "town": "Екатеринбург",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 96,
+    "profession": "Программист Ruby",
+    "town": "Москва",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 97,
+    "profession": "Программист Python",
+    "town": "Казань",
+    "company": "VK"
+  },
+  {
+    "id": 98,
+    "profession": "Программист Java",
+    "town": "Москва",
+    "company": "Тинькофф"
+  },
+  {
+    "id": 99,
+    "profession": "Программист C++",
+    "town": "СПб",
+    "company": "VK"
+  },
+  {
+    "id": 100,
+    "profession": "Программист C#",
+    "town": "Казань",
+    "company": "VK"
+  }
+]
