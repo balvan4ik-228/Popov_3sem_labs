@@ -10,15 +10,21 @@ from square import Square
 
 try:
     from colorama import init, Fore, Back, Style
-
     COLORAMA_AVAILABLE = True
 except ImportError:
     COLORAMA_AVAILABLE = False
+    Fore = Back = Style = None  # Инициализируем пустыми для избежания ошибок
 
 
-def print_colored(text, color=Fore.WHITE, style=Style.NORMAL):
-    if COLORAMA_AVAILABLE:
-        print(f"{style}{color}{text}{Style.RESET_ALL}")
+def print_colored(text, color="WHITE", style="NORMAL"):
+    """Выводит текст цветом, если colorama доступен"""
+    if COLORAMA_AVAILABLE and Fore and Style:
+        try:
+            color_obj = getattr(Fore, color.upper(), Fore.WHITE)
+            style_obj = getattr(Style, style.upper(), Style.NORMAL)
+            print(f"{style_obj}{color_obj}{text}{Style.RESET_ALL}")
+        except (AttributeError, KeyError):
+            print(text)
     else:
         print(text)
 
@@ -35,7 +41,7 @@ def get_user_input(prompt, input_type=float):
                 return None
             return input_type(value)
         except ValueError:
-            print_colored("Ошибка: введите корректное число!", Fore.RED)
+            print_colored("Ошибка: введите корректное число!", "RED")
         except KeyboardInterrupt:
             print("\n\nПрограмма прервана пользователем.")
             sys.exit(0)
@@ -43,9 +49,9 @@ def get_user_input(prompt, input_type=float):
 
 def test_rectangle_interactive():
     clear_screen()
-    print_colored("=" * 60, Fore.CYAN)
-    print_colored("ИНТЕРАКТИВНАЯ ПРОВЕРКА: ПРЯМОУГОЛЬНИК", Fore.YELLOW, Style.BRIGHT)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("=" * 60, "CYAN")
+    print_colored("ИНТЕРАКТИВНАЯ ПРОВЕРКА: ПРЯМОУГОЛЬНИК", "YELLOW", "BRIGHT")
+    print_colored("=" * 60, "CYAN")
 
     print("\nВведите параметры для проверки:")
     print("(или введите 'выход' для возврата в меню)")
@@ -59,25 +65,25 @@ def test_rectangle_interactive():
     color = input("Цвет прямоугольника (например: синий): ").strip()
     if color.lower() in ['выход', 'exit', 'quit']: return
 
-    print_colored("\n" + "-" * 60, Fore.MAGENTA)
+    print_colored("\n" + "-" * 60, "MAGENTA")
     user_area = get_user_input("Ваше предположение о площади прямоугольника: ")
     if user_area is None: return
 
     rectangle = Rectangle(width, height, color)
     program_area = rectangle.area()
 
-    print_colored("\n" + "=" * 60, Fore.CYAN)
-    print_colored("РЕЗУЛЬТАТЫ СРАВНЕНИЯ:", Fore.YELLOW)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("\n" + "=" * 60, "CYAN")
+    print_colored("РЕЗУЛЬТАТЫ СРАВНЕНИЯ:", "YELLOW")
+    print_colored("=" * 60, "CYAN")
 
     print(f"Параметры: {width} × {height}, цвет: {color}")
     print(f"Ваш ответ: {user_area:.2f}")
     print(f"Ответ программы: {program_area:.2f}")
 
     if math.isclose(user_area, program_area, rel_tol=1e-9):
-        print_colored(f"✓ ВЕРНО! Площадь прямоугольника: {program_area:.2f}", Fore.GREEN)
+        print_colored(f"✓ ВЕРНО! Площадь прямоугольника: {program_area:.2f}", "GREEN")
     else:
-        print_colored(f"✗ НЕВЕРНО. Правильный ответ: {program_area:.2f}", Fore.RED)
+        print_colored(f"✗ НЕВЕРНО. Правильный ответ: {program_area:.2f}", "RED")
         difference = abs(user_area - program_area)
         print(f"Разница: {difference:.2f}")
 
@@ -86,9 +92,9 @@ def test_rectangle_interactive():
 
 def test_circle_interactive():
     clear_screen()
-    print_colored("=" * 60, Fore.CYAN)
-    print_colored("ИНТЕРАКТИВНАЯ ПРОВЕРКА: КРУГ", Fore.YELLOW, Style.BRIGHT)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("=" * 60, "CYAN")
+    print_colored("ИНТЕРАКТИВНАЯ ПРОВЕРКА: КРУГ", "YELLOW", "BRIGHT")
+    print_colored("=" * 60, "CYAN")
 
     print("\nВведите параметры для проверки:")
     print("(или введите 'выход' для возврата в меню)")
@@ -99,25 +105,25 @@ def test_circle_interactive():
     color = input("Цвет круга (например: зеленый): ").strip()
     if color.lower() in ['выход', 'exit', 'quit']: return
 
-    print_colored("\n" + "-" * 60, Fore.MAGENTA)
+    print_colored("\n" + "-" * 60, "MAGENTA")
     user_area = get_user_input("Ваше предположение о площади круга: ")
     if user_area is None: return
 
     circle = Circle(radius, color)
     program_area = circle.area()
 
-    print_colored("\n" + "=" * 60, Fore.CYAN)
-    print_colored("РЕЗУЛЬТАТЫ СРАВНЕНИЯ:", Fore.YELLOW)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("\n" + "=" * 60, "CYAN")
+    print_colored("РЕЗУЛЬТАТЫ СРАВНЕНИЯ:", "YELLOW")
+    print_colored("=" * 60, "CYAN")
 
     print(f"Параметры: радиус {radius}, цвет: {color}")
     print(f"Ваш ответ: {user_area:.2f}")
     print(f"Ответ программы: {program_area:.2f}")
 
     if math.isclose(user_area, program_area, rel_tol=1e-9):
-        print_colored(f"✓ ВЕРНО! Площадь круга: {program_area:.2f}", Fore.GREEN)
+        print_colored(f"✓ ВЕРНО! Площадь круга: {program_area:.2f}", "GREEN")
     else:
-        print_colored(f"✗ НЕВЕРНО. Правильный ответ: {program_area:.2f}", Fore.RED)
+        print_colored(f"✗ НЕВЕРНО. Правильный ответ: {program_area:.2f}", "RED")
         difference = abs(user_area - program_area)
         print(f"Разница: {difference:.2f}")
 
@@ -126,9 +132,9 @@ def test_circle_interactive():
 
 def test_square_interactive():
     clear_screen()
-    print_colored("=" * 60, Fore.CYAN)
-    print_colored("ИНТЕРАКТИВНАЯ ПРОВЕРКА: КВАДРАТ", Fore.YELLOW, Style.BRIGHT)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("=" * 60, "CYAN")
+    print_colored("ИНТЕРАКТИВНАЯ ПРОВЕРКА: КВАДРАТ", "YELLOW", "BRIGHT")
+    print_colored("=" * 60, "CYAN")
 
     print("\nВведите параметры для проверки:")
     print("(или введите 'выход' для возврата в меню)")
@@ -139,25 +145,25 @@ def test_square_interactive():
     color = input("Цвет квадрата (например: красный): ").strip()
     if color.lower() in ['выход', 'exit', 'quit']: return
 
-    print_colored("\n" + "-" * 60, Fore.MAGENTA)
+    print_colored("\n" + "-" * 60, "MAGENTA")
     user_area = get_user_input("Ваше предположение о площади квадрата: ")
     if user_area is None: return
 
     square = Square(side, color)
     program_area = square.area()
 
-    print_colored("\n" + "=" * 60, Fore.CYAN)
-    print_colored("РЕЗУЛЬТАТЫ СРАВНЕНИЯ:", Fore.YELLOW)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("\n" + "=" * 60, "CYAN")
+    print_colored("РЕЗУЛЬТАТЫ СРАВНЕНИЯ:", "YELLOW")
+    print_colored("=" * 60, "CYAN")
 
     print(f"Параметры: сторона {side}, цвет: {color}")
     print(f"Ваш ответ: {user_area:.2f}")
     print(f"Ответ программы: {program_area:.2f}")
 
     if math.isclose(user_area, program_area, rel_tol=1e-9):
-        print_colored(f"✓ ВЕРНО! Площадь квадрата: {program_area:.2f}", Fore.GREEN)
+        print_colored(f"✓ ВЕРНО! Площадь квадрата: {program_area:.2f}", "GREEN")
     else:
-        print_colored(f"✗ НЕВЕРНО. Правильный ответ: {program_area:.2f}", Fore.RED)
+        print_colored(f"✗ НЕВЕРНО. Правильный ответ: {program_area:.2f}", "RED")
         difference = abs(user_area - program_area)
         print(f"Разница: {difference:.2f}")
 
@@ -166,9 +172,9 @@ def test_square_interactive():
 
 def comprehensive_test():
     clear_screen()
-    print_colored("=" * 60, Fore.CYAN)
-    print_colored("КОМПЛЕКСНАЯ ПРОВЕРКА ВСЕХ ФИГУР", Fore.YELLOW, Style.BRIGHT)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("=" * 60, "CYAN")
+    print_colored("КОМПЛЕКСНАЯ ПРОВЕРКА ВСЕХ ФИГУР", "YELLOW", "BRIGHT")
+    print_colored("=" * 60, "CYAN")
 
     print("\nВведите общий параметр N для всех фигур:")
     print("(или введите 'выход' для возврата в меню)")
@@ -176,9 +182,9 @@ def comprehensive_test():
     N = get_user_input("Значение N: ")
     if N is None: return
 
-    print_colored("\n" + "=" * 60, Fore.CYAN)
-    print_colored("ВАШИ ПРЕДПОЛОЖЕНИЯ:", Fore.MAGENTA)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("\n" + "=" * 60, "CYAN")
+    print_colored("ВАШИ ПРЕДПОЛОЖЕНИЯ:", "MAGENTA")
+    print_colored("=" * 60, "CYAN")
 
     print(f"\nДля N = {N}:")
     rect_guess = get_user_input("  Площадь прямоугольника N×N: ")
@@ -198,9 +204,9 @@ def comprehensive_test():
     circle_area = circle.area()
     square_area = square.area()
 
-    print_colored("\n" + "=" * 60, Fore.CYAN)
-    print_colored("РЕЗУЛЬТАТЫ ПРОВЕРКИ:", Fore.YELLOW)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("\n" + "=" * 60, "CYAN")
+    print_colored("РЕЗУЛЬТАТЫ ПРОВЕРКИ:", "YELLOW")
+    print_colored("=" * 60, "CYAN")
 
     results = []
 
@@ -209,10 +215,10 @@ def comprehensive_test():
     print(f"   Ваш ответ: {rect_guess:.2f}")
     print(f"   Правильный ответ: {rect_area:.2f}")
     if math.isclose(rect_guess, rect_area, rel_tol=1e-9):
-        print_colored("   ✓ ВЕРНО", Fore.GREEN)
+        print_colored("   ✓ ВЕРНО", "GREEN")
         results.append(True)
     else:
-        print_colored(f"   ✗ НЕВЕРНО, разница: {abs(rect_guess - rect_area):.2f}", Fore.RED)
+        print_colored(f"   ✗ НЕВЕРНО, разница: {abs(rect_guess - rect_area):.2f}", "RED")
         results.append(False)
 
     print("\n2. Круг (зеленый):")
@@ -220,10 +226,10 @@ def comprehensive_test():
     print(f"   Ваш ответ: {circle_guess:.2f}")
     print(f"   Правильный ответ: {circle_area:.2f}")
     if math.isclose(circle_guess, circle_area, rel_tol=1e-9):
-        print_colored("   ✓ ВЕРНО", Fore.GREEN)
+        print_colored("   ✓ ВЕРНО", "GREEN")
         results.append(True)
     else:
-        print_colored(f"   ✗ НЕВЕРНО, разница: {abs(circle_guess - circle_area):.2f}", Fore.RED)
+        print_colored(f"   ✗ НЕВЕРНО, разница: {abs(circle_guess - circle_area):.2f}", "RED")
         results.append(False)
 
     print("\n3. Квадрат (красный):")
@@ -231,31 +237,31 @@ def comprehensive_test():
     print(f"   Ваш ответ: {square_guess:.2f}")
     print(f"   Правильный ответ: {square_area:.2f}")
     if math.isclose(square_guess, square_area, rel_tol=1e-9):
-        print_colored("   ✓ ВЕРНО", Fore.GREEN)
+        print_colored("   ✓ ВЕРНО", "GREEN")
         results.append(True)
     else:
-        print_colored(f"   ✗ НЕВЕРНО, разница: {abs(square_guess - square_area):.2f}", Fore.RED)
+        print_colored(f"   ✗ НЕВЕРНО, разница: {abs(square_guess - square_area):.2f}", "RED")
         results.append(False)
 
     correct_count = sum(results)
     total_count = len(results)
     percentage = (correct_count / total_count) * 100
 
-    print_colored("\n" + "=" * 60, Fore.CYAN)
-    print_colored("ИТОГОВЫЙ РЕЗУЛЬТАТ:", Fore.YELLOW)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("\n" + "=" * 60, "CYAN")
+    print_colored("ИТОГОВЫЙ РЕЗУЛЬТАТ:", "YELLOW")
+    print_colored("=" * 60, "CYAN")
 
     print(f"\nПравильных ответов: {correct_count} из {total_count}")
     print(f"Процент правильных ответов: {percentage:.1f}%")
 
     if percentage == 100:
-        print_colored("Отличный результат! Все ответы верны!", Fore.GREEN, Style.BRIGHT)
+        print_colored("Отличный результат! Все ответы верны!", "GREEN", "BRIGHT")
     elif percentage >= 70:
-        print_colored("Хороший результат!", Fore.GREEN)
+        print_colored("Хороший результат!", "GREEN")
     elif percentage >= 50:
-        print_colored("Удовлетворительный результат.", Fore.YELLOW)
+        print_colored("Удовлетворительный результат.", "YELLOW")
     else:
-        print_colored("Нужно больше практики!", Fore.RED)
+        print_colored("Нужно больше практики!", "RED")
 
     input("\nНажмите Enter для продолжения...")
 
@@ -266,18 +272,18 @@ def show_main_menu():
 
     while True:
         clear_screen()
-        print_colored("=" * 60, Fore.CYAN)
-        print_colored("ГЛАВНОЕ МЕНЮ: ИНТЕРАКТИВНАЯ ПРОВЕРКА ГЕОМЕТРИЧЕСКИХ ФИГУР", Fore.YELLOW, Style.BRIGHT)
-        print_colored("=" * 60, Fore.CYAN)
+        print_colored("=" * 60, "CYAN")
+        print_colored("ГЛАВНОЕ МЕНЮ: ИНТЕРАКТИВНАЯ ПРОВЕРКА ГЕОМЕТРИЧЕСКИХ ФИГУР", "YELLOW", "BRIGHT")
+        print_colored("=" * 60, "CYAN")
 
         print("\nВыберите режим работы:")
-        print_colored("1. Демонстрация программы (по заданию)", Fore.GREEN)
-        print_colored("2. Проверка прямоугольника", Fore.CYAN)
-        print_colored("3. Проверка круга", Fore.MAGENTA)
-        print_colored("4. Проверка квадрата", Fore.BLUE)
-        print_colored("5. Комплексная проверка всех фигур", Fore.YELLOW)
-        print_colored("6. Информация о формулах", Fore.WHITE)
-        print_colored("0. Выход", Fore.RED)
+        print_colored("1. Демонстрация программы (по заданию)", "GREEN")
+        print_colored("2. Проверка прямоугольника", "CYAN")
+        print_colored("3. Проверка круга", "MAGENTA")
+        print_colored("4. Проверка квадрата", "BLUE")
+        print_colored("5. Комплексная проверка всех фигур", "YELLOW")
+        print_colored("6. Информация о формулах", "WHITE")
+        print_colored("0. Выход", "RED")
 
         choice = input("\nВаш выбор: ").strip()
 
@@ -294,23 +300,23 @@ def show_main_menu():
         elif choice == "6":
             show_formulas_info()
         elif choice == "0":
-            print_colored("\nДо свидания!", Fore.CYAN)
+            print_colored("\nДо свидания!", "CYAN")
             break
         else:
-            print_colored("\nНеверный выбор. Попробуйте снова.", Fore.RED)
+            print_colored("\nНеверный выбор. Попробуйте снова.", "RED")
             input("Нажмите Enter для продолжения...")
 
 
 def run_demo():
     clear_screen()
-    print_colored("=" * 60, Fore.CYAN)
-    print_colored("ДЕМОНСТРАЦИЯ ПРОГРАММЫ (ПО ЗАДАНИЮ)", Fore.YELLOW, Style.BRIGHT)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("=" * 60, "CYAN")
+    print_colored("ДЕМОНСТРАЦИЯ ПРОГРАММЫ (ПО ЗАДАНИЮ)", "YELLOW", "BRIGHT")
+    print_colored("=" * 60, "CYAN")
 
     N = get_user_input("\nВведите номер вашего варианта (N): ")
     if N is None: return
 
-    print_colored(f"\nСоздание фигур для N = {N}:", Fore.GREEN)
+    print_colored(f"\nСоздание фигур для N = {N}:", "GREEN")
 
     rectangle = Rectangle(N, N, "синий")
     circle = Circle(N, "зеленый")
@@ -320,55 +326,55 @@ def run_demo():
     print(f"2. {circle}")
     print(f"3. {square}")
 
-    print_colored("\n" + "=" * 60, Fore.CYAN)
-    print_colored("ДЕМОНСТРАЦИЯ ВНЕШНЕГО ПАКЕТА COLORAMA:", Fore.YELLOW)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("\n" + "=" * 60, "CYAN")
+    print_colored("ДЕМОНСТРАЦИЯ ВНЕШНЕГО ПАКЕТА COLORAMA:", "YELLOW")
+    print_colored("=" * 60, "CYAN")
 
     if COLORAMA_AVAILABLE:
-        print(Fore.RED + "Этот текст красного цвета")
-        print(Fore.GREEN + "Этот текст зеленого цвета")
-        print(Fore.BLUE + "Этот текст синего цвета")
-        print(Back.YELLOW + Fore.BLACK + "Этот текст на желтом фоне")
-        print(Style.BRIGHT + "Этот текст яркий")
+        print_colored("Этот текст красного цвета", "RED")
+        print_colored("Этот текст зеленого цвета", "GREEN")
+        print_colored("Этот текст синего цвета", "BLUE")
+        print_colored("Этот текст яркий", "WHITE", "BRIGHT")
+        print_colored("Этот текст на желтом фоне (пример)", "YELLOW", "BRIGHT")
     else:
-        print("Пакет colorama не установлен. Установите: pip install colorama")
+        print_colored("Пакет colorama не установлен. Установите: pip install colorama", "YELLOW")
 
     input("\nНажмите Enter для возврата в меню...")
 
 
 def show_formulas_info():
     clear_screen()
-    print_colored("=" * 60, Fore.CYAN)
-    print_colored("СПРАВОЧНАЯ ИНФОРМАЦИЯ: ФОРМУЛЫ ПЛОЩАДИ", Fore.YELLOW, Style.BRIGHT)
-    print_colored("=" * 60, Fore.CYAN)
+    print_colored("=" * 60, "CYAN")
+    print_colored("СПРАВОЧНАЯ ИНФОРМАЦИЯ: ФОРМУЛЫ ПЛОЩАДИ", "YELLOW", "BRIGHT")
+    print_colored("=" * 60, "CYAN")
 
     print("\nФормулы для расчета площади:")
-    print_colored("\n1. ПРЯМОУГОЛЬНИК:", Fore.CYAN)
+    print_colored("\n1. ПРЯМОУГОЛЬНИК:", "CYAN")
     print("   Площадь = ширина × высота")
     print("   S = a × b")
     print("   Пример: прямоугольник 5×3 → S = 5 × 3 = 15")
 
-    print_colored("\n2. КВАДРАТ:", Fore.MAGENTA)
+    print_colored("\n2. КВАДРАТ:", "MAGENTA")
     print("   Площадь = сторона × сторона")
     print("   S = a²")
     print("   Пример: квадрат со стороной 4 → S = 4 × 4 = 16")
 
-    print_colored("\n3. КРУГ:", Fore.GREEN)
+    print_colored("\n3. КРУГ:", "GREEN")
     print("   Площадь = π × радиус²")
     print("   S = π × r²")
     print("   где π ≈ 3.1415926535...")
     print("   Пример: круг радиусом 3 → S = π × 3² ≈ 28.27")
 
-    print_colored("\n4. ТРЕУГОЛЬНИК (дополнительно):", Fore.BLUE)
+    print_colored("\n4. ТРЕУГОЛЬНИК (дополнительно):", "BLUE")
     print("   Площадь = (основание × высота) / 2")
     print("   S = (a × h) / 2")
 
-    print_colored("\nПримеры для самопроверки:", Fore.YELLOW)
+    print_colored("\nПримеры для самопроверки:", "YELLOW")
     print("1. Прямоугольник: 7 × 4 = 28")
     print("2. Квадрат: 6 × 6 = 36")
     print("3. Круг радиусом 5: π × 25 ≈ 78.54")
 
-    print_colored("\nПроверьте себя с помощью интерактивных тестов!", Fore.GREEN)
+    print_colored("\nПроверьте себя с помощью интерактивных тестов!", "GREEN")
 
     input("\nНажмите Enter для возврата в меню...")
 
